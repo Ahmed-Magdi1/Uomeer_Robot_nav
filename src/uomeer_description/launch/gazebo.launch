@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Robot urdf -->
+    <param name="robot_description" command="xacro '$(find uomeer_description)/urdf/uomeer.urdf.xacro'"/>
+
+    <!--node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui"/--> 
+
+
+
+    <!-- Arguments -->
+    <arg name="world" default="$(find uomeer_description)/worlds/maze.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+
+    <!--Gazebo empty world--> 
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world)"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+
+        
+    </include>
+
+
+    <!-- Robot_Spawn-->
+    <node name="spawning_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model uomeer -param robot_description -x -5.246330 -y 3.199957 -z 0.1 -Y -3.135379"/> 
+
+</launch>
+

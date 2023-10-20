@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="uomeer">
+
+    <!--gazebo>
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <legacyMode>false</legacyMode>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <leftJoint>Joint_Left_Wheel_Back</leftJoint>
+        <rightJoint>Joint_Right_Wheel_Back</rightJoint>
+        <wheelSeparation>0.45</wheelSeparation>
+        <wheelDiameter>0.2</wheelDiameter>
+        <torque>20</torque>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>chassis</robotBaseFrame>
+        </plugin>
+    </gazebo-->
+
+
+    <gazebo>
+        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <updateRate>100.0</updateRate>
+            <robotNamespace>/</robotNamespace>
+            <leftFrontJoint>Joint_Left_Wheel_Front</leftFrontJoint>
+            <rightFrontJoint>Joint_Right_Wheel_Front</rightFrontJoint>
+            <leftRearJoint>Joint_Left_Wheel_Back</leftRearJoint>
+            <rightRearJoint>Joint_Right_Wheel_Back</rightRearJoint>
+            <wheelSeparation>0.45</wheelSeparation>
+            <wheelDiameter>0.2</wheelDiameter>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <torque>20</torque>
+            <topicName>cmd_vel</topicName>
+            <broadcastTF>true</broadcastTF>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            
+            <commandTopic>cmd_vel</commandTopic>
+            <covariance_x>0.001000</covariance_x>
+            <covariance_y>0.001000</covariance_y>
+            <covariance_yaw>0.100000</covariance_yaw>
+
+        </plugin>
+    </gazebo>
+
+</robot>
+
