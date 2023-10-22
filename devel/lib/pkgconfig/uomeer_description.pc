@@ -1,8 +1,0 @@
-prefix=/home/ahmed/uomeer_ws/devel
-
-Name: uomeer_description
-Description: Description of uomeer_description
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
